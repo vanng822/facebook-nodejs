@@ -1,0 +1,13 @@
+{
+	"name": "fbnodejs",
+	"description": "Simple facebook api client",
+	"keywords": ["client", "facebook", "api"],
+	"author": "Nguyen Van Nhu",
+	"contributors": [],
+	"dependencies": [],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/vanng822/facebook-nodejs.git"
+	},
+	"version": "0.1.1"
+}
