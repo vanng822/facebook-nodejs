@@ -1,5 +1,5 @@
 {
-	"name": "fbnodejs",
+	"name": "fbgraph",
 	"description": "Simple facebook api client",
 	"keywords": ["client", "facebook", "api"],
 	"author": "Nguyen Van Nhu",
