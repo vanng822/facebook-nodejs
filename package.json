@@ -3,6 +3,7 @@
 	"description": "Simple facebook api client",
 	"keywords": ["client", "facebook", "api"],
 	"author": "Nguyen Van Nhu",
+	"homepage" : "https://github.com/vanng822/facebook-nodejs",
 	"contributors": [],
 	"dependencies": [],
 	"repository": {
