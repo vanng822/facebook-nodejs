@@ -4,7 +4,7 @@ A simple module for querying Facebook graph api and fql
 ## Usage example
 
 	express = require('express');
-	fbgraph = require('fbgraph');
+	fbgraph = require('fbgraphapi');
 	app = express.createServer();
 	app.use(fbgraph.auth({appId : "...",
 		appSecret : "...",
