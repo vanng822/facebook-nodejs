@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/vanng822/facebook-nodejs.png)](http://travis-ci.org/vanng822/facebook-nodejs)
 ## Facebook nodejs
 A simple module for querying Facebook graph api and fql
 
