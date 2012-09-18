@@ -70,7 +70,7 @@ This method is for logging out user or for any reason want to clear user's logge
 * `my` Instance of My class
 
 ### My(facebook)
-This class uses internally to create object my (property in Facebook). This object wrap the me-object. This means that you can make a call like
+This class uses internally to create object my (property in Facebook). This object wrap the me-object. Each connection type is a method. This means that you can make a call like
 	
 	req.facebook.my.friends(function(err, friends) {
 		console.log(friends)
