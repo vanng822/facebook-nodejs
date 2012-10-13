@@ -28,6 +28,10 @@ A simple module for querying Facebook graph api and fql
 			console.log(me);
 		}, 'id,name');
 		
+		// /me/likes
+		req.facebook.my.likes(function(err, likes) {
+			console.log(likes);
+		});
 		
 		/* Single fql query */
 		req.facebook.fql('SELECT uid FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1=me())  AND is_app_user = 1', function(err, result) {
