@@ -3,49 +3,71 @@ A simple module for querying Facebook graph api and fql
 
 ## Usage example
 
-	express = require('express');
-	fbgraph = require('fbgraphapi');
-	app = express.createServer();
-	app.use(fbgraph.auth({appId : "...",
-		appSecret : "...",
-		redirectUri : "..."}));
+	var express = require('express');
+	var fbgraph = require('fbgraphapi');
+	var app = express();
+	var http = require('http');
+	var server = http.createServer(app);
+	
 		
+	app.use(express.bodyParser());
+	app.use(express.cookieParser());
+	app.use(express.session({secret : "SECRET"}));
+	app.use(fbgraph.auth( {
+			appId : "...",
+			appSecret : "...",
+			redirectUri : "http://0.0.0.0:3000/"
+		}));
+	
+	
+	app.get('/login', function(req, res) {
+		console.log('Start login');
+		fbgraph.redirectLoginForm(req, res);	
+	});
+	
 	app.get('/', function(req, res) {
+		if (!req.hasOwnProperty('facebook')) {
+			console.log('You are not logged in');
+			return res.redirect('/login');
+		}
 		/* See http://developers.facebook.com/docs/reference/api/ for more */
 		req.facebook.graph('/me', function(err, me) {
-			console.log(me);
+		    console.log(me);
 		});
 		
 		req.facebook.graph('/me?fields=id,name', function(err, me) {
-			console.log(me);
+		    console.log(me);
 		});
 		
 		req.facebook.me(function(err, me) {
-			console.log(me);
+		    console.log(me);
 		});
 		
 		req.facebook.me(function(err, me) {
-			console.log(me);
+		    console.log(me);
 		}, 'id,name');
 		
 		// /me/likes
 		req.facebook.my.likes(function(err, likes) {
-			console.log(likes);
+		    console.log(likes);
 		});
 		
 		/* Single fql query */
 		req.facebook.fql('SELECT uid FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1=me())  AND is_app_user = 1', function(err, result) {
-			console.log(result);
+		    console.log(result);
 		});
 		
 		/* Multiple fql queries */
 		req.facebook.fql({
-			uids : 'SELECT uid FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1=me()) AND is_app_user = 1',
-			myapp : 'SELECT application_id, role FROM developer WHERE developer_id = me()'
+		    uids : 'SELECT uid FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1=me()) AND is_app_user = 1',
+		    myapp : 'SELECT application_id, role FROM developer WHERE developer_id = me()'
 		}, function(err, result) {
-			console.log(result);
+		    console.log(result);
 		});
+		res.end("Check console output");
 	});
+	
+	server.listen(3000);
 
 ## Methods
 ### auth(config)
