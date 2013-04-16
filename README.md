@@ -94,7 +94,7 @@ This method is for logging out user or for any reason want to clear user's logge
 * `me(callback, fields)` Specific method to get info of the logged user, same as /me when using graph-method. Fields is comma-separated for instance fields=id,name
 * `getAppFriends(callback, fields)` Return friends that use your Facebook application. Fields is comma-separated.
 * `my` Instance of My class
-
+	
 	// if have a valid accessToken for instance from js login
 	fb = new Facebook(accessToken);
 	fb.me(function(err, me) {
