@@ -95,6 +95,13 @@ This method is for logging out user or for any reason want to clear user's logge
 * `getAppFriends(callback, fields)` Return friends that use your Facebook application. Fields is comma-separated.
 * `my` Instance of My class
 
+	// if have a valid accessToken for instance from js login
+	fb = new Facebook(accessToken);
+	fb.me(function(err, me) {
+		console.log(me);
+	});
+	
+
 ### My(facebook)
 This class uses internally to create object my (property in Facebook). This object wrap the me-object. Each connection type is a method. This means that you can make a call like
 	
