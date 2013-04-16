@@ -95,8 +95,7 @@ This method is for logging out user or for any reason want to clear user's logge
 * `getAppFriends(callback, fields)` Return friends that use your Facebook application. Fields is comma-separated.
 * `my` Instance of My class
 	
-	// if have a valid accessToken for instance from js login
-	fb = new Facebook(accessToken);
+	var fb = new Facebook(accessToken); // if have a valid accessToken for instance from js login
 	fb.me(function(err, me) {
 		console.log(me);
 	});
