@@ -142,3 +142,9 @@ Supported connection types are:
 * `checkins`
 * `locations`
 
+If you can not find a connection that Facebook has but not here you can use connection-method
+	
+	req.facebook.my.connection('{connection type}', function(err, result) {
+		console.log(result)
+	});
+
