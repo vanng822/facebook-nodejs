@@ -76,7 +76,10 @@ Or if have a valid access token for instance from javascript fb connect
 		console.log(me);
 	});
 	
-	
+## Facebook API reference
+Visit the links bellow for API documentation of Facebook API
+https://developers.facebook.com/docs/graph-api/using-graph-api
+
 ## Methods
 ### auth(config)
 config is an object with those properties
@@ -100,6 +103,7 @@ This method is for logging out user or for any reason want to clear user's logge
 * `accessToken` Valid access token from Facebook (oauth_token).
 * `graph(path, callback)` Main method for making call to Facebook API. Path can contain only /me/likes or with params like /me/likes?limit=3
 * `fql(query, callback)` Specific method for making fql query to Facebook API
+* `search(params, callback)` params is an object which properties are any param based on this https://developers.facebook.com/docs/graph-api/using-graph-api#search
 * `me(callback, fields)` Specific method to get info of the logged user, same as /me when using graph-method. Fields is comma-separated for instance fields=id,name
 * `getAppFriends(callback, fields)` Return friends that use your Facebook application. Fields is comma-separated.
 * `my` Instance of My class
