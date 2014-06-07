@@ -9,7 +9,6 @@ A simple module for querying Facebook graph api and fql
 	var http = require('http');
 	var server = http.createServer(app);
 	
-		
 	app.use(express.bodyParser());
 	app.use(express.cookieParser());
 	app.use(express.session({secret : "SECRET"}));
@@ -18,7 +17,6 @@ A simple module for querying Facebook graph api and fql
 			appSecret : "...",
 			redirectUri : "http://0.0.0.0:3000/"
 		}));
-	
 	
 	app.get('/login', function(req, res) {
 		console.log('Start login');
@@ -48,18 +46,6 @@ A simple module for querying Facebook graph api and fql
 		    console.log(likes);
 		});
 		
-		/* Single fql query */
-		req.facebook.fql('SELECT uid FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1=me())  AND is_app_user = 1', function(err, result) {
-		    console.log(result);
-		});
-		
-		/* Multiple fql queries */
-		req.facebook.fql({
-		    uids : 'SELECT uid FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1=me()) AND is_app_user = 1',
-		    myapp : 'SELECT application_id, role FROM developer WHERE developer_id = me()'
-		}, function(err, result) {
-		    console.log(result);
-		});
 		res.end("Check console output");
 	});
 	
