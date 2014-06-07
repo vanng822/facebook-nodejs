@@ -43,10 +43,6 @@ A simple module for querying Facebook graph api and fql
 		    console.log(me);
 		});
 		
-		req.facebook.me(function(err, me) {
-		    console.log(me);
-		}, 'id,name');
-		
 		// /me/likes
 		req.facebook.my.likes(function(err, likes) {
 		    console.log(likes);
@@ -71,11 +67,18 @@ A simple module for querying Facebook graph api and fql
 
 Or if have a valid access token for instance from javascript fb connect
 	
-	var fb = new Facebook(accessToken);
+	var fb = new fbgraph.Facebook(accessToken);
 	fb.me(function(err, me) {
 		console.log(me);
 	});
 	
+Or just accessing public data
+	
+	var fb = new fbgraph.Facebook();
+	fb.graph('/zuck', function(err, zuckerberg) {
+		console.log(zuckerberg);
+	});	
+
 ## Facebook API reference
 Visit the links bellow for API documentation of Facebook API
 https://developers.facebook.com/docs/graph-api/using-graph-api
