@@ -5,7 +5,8 @@
 	"author": "Nguyen Van Nhu",
 	"homepage" : "https://github.com/vanng822/facebook-nodejs",
 	"contributors": [],
-	"dependencies": [],
+	"dependencies":{} ,
+	"devDependencies": {"mocha": "*"},
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/vanng822/facebook-nodejs.git"
@@ -13,11 +14,14 @@
 	"bugs": {
 		"url": "https://github.com/vanng822/facebook-nodejs/issues"
 	},
+	"scripts": {
+		"test": "./node_modules/mocha/bin/mocha"
+	},
 	"licenses": [
 		{
 			"type": "MIT",
 			"url": "https://github.com/vanng822/facebook-nodejs/blob/master/LICENSE"
 		}
 	],
-	"version": "0.4.5"
+	"version": "0.4.6"
 }
