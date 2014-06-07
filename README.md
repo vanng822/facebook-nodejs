@@ -57,6 +57,13 @@ Or if have a valid access token for instance from javascript fb connect
 	fb.me(function(err, me) {
 		console.log(me);
 	});
+
+Or do stuff on behalf of the app or user with granted permissions
+	
+	var fb = new fbgraph.Facebook(fbgraph.getAppId() + '|' + fbgraph.getAppSecret());
+	fb.post('/{user-id}/feed', {message: 'Hello world'},function(err, res) {
+		console.log(err, res);
+	});
 	
 Or just accessing public data
 	
@@ -86,6 +93,12 @@ This method will redirect user to Facebook login form.
 
 ### destroySession(req, res, clearCookie)
 This method is for logging out user or for any reason want to clear user's logged-in info
+
+### getAppId()
+return app id, set via auth()
+
+### getAppSecret()
+return app secret, set via auth()
 
 ## Classes
 ### Facebook(accessToken)
