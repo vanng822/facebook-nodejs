@@ -15,7 +15,8 @@ A simple module for querying Facebook graph api and fql
 	app.use(fbgraph.auth( {
 			appId : "...",
 			appSecret : "...",
-			redirectUri : "http://0.0.0.0:3000/"
+			redirectUri : "http://0.0.0.0:3000/",
+			apiVersion: "v2.2"
 		}));
 	
 	app.get('/login', function(req, res) {
@@ -53,7 +54,7 @@ A simple module for querying Facebook graph api and fql
 
 Or if have a valid access token for instance from javascript fb connect
 	
-	var fb = new fbgraph.Facebook(accessToken);
+	var fb = new fbgraph.Facebook(accessToken, 'v2.2');
 	fb.me(function(err, me) {
 		console.log(me);
 	});
@@ -64,13 +65,6 @@ Or do stuff on behalf of the app or user with granted permissions
 	fb.post('/{user-id}/feed', {message: 'Hello world'},function(err, res) {
 		console.log(err, res);
 	});
-	
-Or just accessing public data
-	
-	var fb = new fbgraph.Facebook();
-	fb.graph('/zuck', function(err, zuckerberg) {
-		console.log(zuckerberg);
-	});	
 
 ## Facebook API reference
 Visit the links bellow for API documentation of Facebook API
@@ -115,7 +109,7 @@ return app secret, set via auth()
 
 Usage: if have a valid accessToken for instance from js login
 	
-	var fb = new Facebook(accessToken);
+	var fb = new Facebook(accessToken, 'v2.2');
 	fb.me(function(err, me) {
 		console.log(me);
 	});
