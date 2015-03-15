@@ -96,17 +96,17 @@ return app id, set via auth()
 return app secret, set via auth()
 
 ## Classes
-### Facebook(accessToken)
+### Facebook(accessToken, apiVersion)
 * `accessToken` Valid access token from Facebook (oauth_token).
-* `graph(path, callback)` Main method for making call to Facebook API. Path can contain only /me/likes or with params like /me/likes?limit=3
-* `post(path, params, callback) or post(path, callback)` Publishing to Facebook, see https://developers.facebook.com/docs/graph-api/using-graph-api/v2.0#publishing for detail. Path can contain post data such as /123/feed?message=hello
-* `update(path, params, callback) or update(path, callback)` Updating a post on Facebook, see https://developers.facebook.com/docs/graph-api/using-graph-api/v2.0#updating for defail. Path can contain post data such as /123_123456789?message=edited
-* `delete(path, callback)` Deleting a post on Facebook, see https://developers.facebook.com/docs/graph-api/using-graph-api/v2.0#deleting for defail
-* `fql(query, callback)` Specific method for making fql query to Facebook API
-* `search(params, callback)` params is an object which properties are any param based on this https://developers.facebook.com/docs/graph-api/using-graph-api#search
-* `me(callback, fields)` Specific method to get info of the logged user, same as /me when using graph-method. Fields is comma-separated for instance fields=id,name
-* `getAppFriends(callback, fields)` Return friends that use your Facebook application. Fields is comma-separated.
-* `my` Instance of My class
+* `apiVersion` Which api version to use
+* `.graph(path, callback)` Main method for making call to Facebook API. Path can contain only /me/likes or with params like /me/likes?limit=3
+* `.post(path, params, callback) or post(path, callback)` Publishing to Facebook, see https://developers.facebook.com/docs/graph-api/using-graph-api/v2.0#publishing for detail. Path can contain post data such as /123/feed?message=hello
+* `.update(path, params, callback) or update(path, callback)` Updating a post on Facebook, see https://developers.facebook.com/docs/graph-api/using-graph-api/v2.0#updating for defail. Path can contain post data such as /123_123456789?message=edited
+* `.delete(path, callback)` Deleting a post on Facebook, see https://developers.facebook.com/docs/graph-api/using-graph-api/v2.0#deleting for defail
+* `.fql(query, callback)` Specific method for making fql query to Facebook API
+* `.search(params, callback)` params is an object which properties are any param based on this https://developers.facebook.com/docs/graph-api/using-graph-api#search
+* `.me(callback, fields)` Specific method to get info of the logged user, same as /me when using graph-method. Fields is comma-separated for instance fields=id,name
+* `.my` Instance of My class
 
 Usage: if have a valid accessToken for instance from js login
 	
