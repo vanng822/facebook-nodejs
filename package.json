@@ -6,7 +6,7 @@
 	"homepage" : "https://github.com/vanng822/facebook-nodejs",
 	"contributors": [],
 	"dependencies":{} ,
-	"devDependencies": {"mocha": "*"},
+	"devDependencies": {"mocha": "*", "nock": "*"},
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/vanng822/facebook-nodejs.git"
