@@ -3,7 +3,7 @@ var assert = require('assert');
 var fbgraphapi = require('../index.js');
 var nock = require('nock');
 nock('https://graph.facebook.com')
-.get('/v1.0/1155678417?')
+.get('/v1.0/1155678417')
 .reply(200, { id: '1155678417',
 			first_name: 'Van Nhu',
 			gender: 'male',
@@ -13,7 +13,7 @@ nock('https://graph.facebook.com')
 			username: 'nguyen.van.nhu' });
 
 nock('https://graph.facebook.com')
-.get('/v2.2/1155678417?')
+.get('/v2.2/1155678417')
 .reply(400, {error: {
 	error_subcode: null,
 	type: 'OAuthException',
