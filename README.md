@@ -10,8 +10,6 @@ A simple module for querying Facebook graph api and fql
 	const session = require('express-session');
 
 	const app = express();
-	const http = require('http');
-	const server = http.createServer(app);
 	// parse application/x-www-form-urlencoded
 	app.use(bodyParser.urlencoded({ extended: false }));
 	app.use(cookieParser())
@@ -61,7 +59,8 @@ A simple module for querying Facebook graph api and fql
 		res.end("Check console output");
 	});
 
-	server.listen(3000);
+	app.listen(3000);
+
 
 
 Or if have a valid access token for instance from javascript fb connect
