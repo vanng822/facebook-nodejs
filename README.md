@@ -2,28 +2,39 @@
 A simple module for querying Facebook graph api and fql
 
 ## Usage example
+	// run first: npm install express fbgraphapi body-parser cookie-parser express-session
+	const express = require('express');
+	const fbgraph = require('fbgraphapi');
+	const bodyParser = require('body-parser');
+	const cookieParser = require('cookie-parser');
+	const session = require('express-session');
 
-	var express = require('express');
-	var fbgraph = require('fbgraphapi');
-	var app = express();
-	var http = require('http');
-	var server = http.createServer(app);
-	
-	app.use(express.bodyParser());
-	app.use(express.cookieParser());
-	app.use(express.session({secret : "SECRET"}));
+	const app = express();
+	const http = require('http');
+	const server = http.createServer(app);
+	// parse application/x-www-form-urlencoded
+	app.use(bodyParser.urlencoded({ extended: false }));
+	app.use(cookieParser())
+	app.use(session({
+	  secret: 'keyboard cat',
+	  resave: false,
+	  saveUninitialized: true,
+	  cookie: { secure: false }
+	}))
+
 	app.use(fbgraph.auth( {
 			appId : "...",
 			appSecret : "...",
 			redirectUri : "http://0.0.0.0:3000/",
-			apiVersion: "v2.2"
+			apiVersion: "v2.9",
+			skipUrlPatterns: ["/favicon.ico"]
 		}));
-	
+
 	app.get('/login', function(req, res) {
 		console.log('Start login');
-		fbgraph.redirectLoginForm(req, res);	
+		fbgraph.redirectLoginForm(req, res);
 	});
-	
+
 	app.get('/', function(req, res) {
 		if (!req.hasOwnProperty('facebook')) {
 			console.log('You are not logged in');
@@ -33,24 +44,25 @@ A simple module for querying Facebook graph api and fql
 		req.facebook.graph('/me', function(err, me) {
 		    console.log(me);
 		});
-		
+
 		req.facebook.graph('/me?fields=id,name', function(err, me) {
 		    console.log(me);
 		});
-		
+
 		req.facebook.me(function(err, me) {
 		    console.log(me);
 		});
-		
+
 		// /me/likes
 		req.facebook.my.likes(function(err, likes) {
 		    console.log(likes);
 		});
-		
+
 		res.end("Check console output");
 	});
-	
+
 	server.listen(3000);
+
 
 Or if have a valid access token for instance from javascript fb connect
 	
