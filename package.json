@@ -17,11 +17,6 @@
 	"scripts": {
 		"test": "./node_modules/mocha/bin/mocha"
 	},
-	"licenses": [
-		{
-			"type": "MIT",
-			"url": "https://github.com/vanng822/facebook-nodejs/blob/master/LICENSE"
-		}
-	],
-	"version": "0.5.0"
+	"license": "MIT",
+	"version": "0.5.1"
 }
